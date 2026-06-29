@@ -2,7 +2,10 @@ module backend
 
 go 1.26
 
-require github.com/gin-gonic/gin v1.12.0
+require (
+	github.com/gin-gonic/gin v1.12.0
+	github.com/mozillazg/go-pinyin v0.21.0
+)
 
 require (
 	github.com/bytedance/gopkg v0.1.3 // indirect
