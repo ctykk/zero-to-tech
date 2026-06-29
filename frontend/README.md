@@ -1,21 +1,12 @@
-# bun-react-template
+# Zero to Tech - 前端
 
-To install dependencies:
+前端基于 **React 19 + TypeScript + Vite** 构建，包管理使用 Bun。
 
-```bash
-bun install
-```
-
-To start a development server:
+## 启动
 
 ```bash
-bun dev
+bun install      # 安装依赖
+bun run dev      # 启动开发服务器 (Vite)
+bun run build    # 生产构建
+bun run preview  # 预览生产构建
 ```
-
-To run for production:
-
-```bash
-bun start
-```
-
-This project was created using `bun init` in bun v1.3.14. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
