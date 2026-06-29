@@ -1,0 +1,5 @@
+# IntelliJ based IDEs
+.idea/
+
+# output/
+dist/
