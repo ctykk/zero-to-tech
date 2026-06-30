@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import PageHeading from "./PageHeading";
 import AnimatedCardGrid from "./AnimatedCardGrid";
-import { home } from "../data/site";
-import { fetchMotto } from "../services/api";
+import { fetchIdentity } from "../services/api";
 
 export default function HomePage() {
   const [motto, setMotto] = useState("-");
@@ -12,8 +11,8 @@ export default function HomePage() {
 
   // 组件挂载时从后端获取 motto
   useEffect(() => {
-    fetchMotto()
-      .then(setMotto)
+    fetchIdentity()
+      .then((r) => {setMotto(r.motto)})
       .catch((err) => setMotto(String(err)));
   }, []);
 
@@ -21,7 +20,7 @@ export default function HomePage() {
     <AnimatedCardGrid className="dashboard-grid">
       <article className="hero-stage panel-full">
         <Nav />
-        <PageHeading title={home.heroTitle} subtitle={home.heroSubtitle} />
+        <PageHeading title="关于我" subtitle="项目，创意，灵感，心得，我的作品" />
       </article>
 
       <article className="panel panel-full featured-work-panel card">

@@ -4,3 +4,7 @@ export interface AnalysisResult {
   emotion: string;
   emotion_score: number;
 }
+
+export interface IdentityResult {
+  motto: string;
+}
