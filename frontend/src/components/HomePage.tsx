@@ -12,7 +12,9 @@ export default function HomePage() {
   // 组件挂载时从后端获取 motto
   useEffect(() => {
     fetchIdentity()
-      .then((r) => {setMotto(r.motto)})
+      .then((r) => {
+        setMotto(r.motto);
+      })
       .catch((err) => setMotto(String(err)));
   }, []);
 
