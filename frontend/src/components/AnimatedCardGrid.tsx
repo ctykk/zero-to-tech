@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 
 interface AnimatedCardGridProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

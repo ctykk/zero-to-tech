@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import PageHeading from "./PageHeading";
 import AnimatedCardGrid from "./AnimatedCardGrid";
 import { home } from "../data/site";
+import { fetchMotto } from "../services/api";
 
 export default function HomePage() {
+  const [motto, setMotto] = useState("-");
   const navigate = useNavigate();
+
+  // 组件挂载时从后端获取 motto
+  useEffect(() => {
+    fetchMotto()
+      .then(setMotto)
+      .catch((err) => setMotto(String(err)));
+  }, []);
 
   return (
     <AnimatedCardGrid className="dashboard-grid">
@@ -15,9 +25,9 @@ export default function HomePage() {
       </article>
 
       <article className="panel panel-full featured-work-panel card">
-        <p className="section-kicker">{home.featuredWork.kicker}</p>
-        <p className="featured-title">{home.featuredWork.title}</p>
-        <p className="featured-copy">{home.featuredWork.copy}</p>
+        <p className="section-kicker">作品</p>
+        <p className="featured-title">文字实验室</p>
+        <p className="featured-copy">拼音和情绪，挖掘中文里的细节</p>
         <a
           className="featured-link"
           href="#"
@@ -26,7 +36,7 @@ export default function HomePage() {
             navigate("/text-lab");
           }}
         >
-          <span className="featured-link-label">{home.featuredWork.linkLabel}</span>
+          <span className="featured-link-label">打开作品</span>
           <span className="arrow">›</span>
         </a>
       </article>
@@ -34,11 +44,11 @@ export default function HomePage() {
       <article className="panel panel-full identity-panel card">
         <div className="identity-item">
           <p className="section-kicker">座右铭</p>
-          <p className="identity-value identity-quote">{home.identity.motto}</p>
+          <p className="identity-value identity-quote">{motto}</p>
         </div>
         <div className="identity-item">
           <p className="section-kicker">正在学习</p>
-          <p className="identity-value">{home.identity.learning}</p>
+          <p className="identity-value">零到全栈</p>
         </div>
       </article>
     </AnimatedCardGrid>

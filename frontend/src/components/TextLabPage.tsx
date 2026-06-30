@@ -6,7 +6,7 @@ import InputCard from "./InputCard";
 import ResultCard from "./ResultCard";
 import { textLab } from "../data/site";
 import { analyzeText } from "../services/api";
-import type { AnalysisResult } from "../types";
+import type { AnalysisResult } from "@/types";
 
 export default function TextLabPage() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
