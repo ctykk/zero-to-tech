@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Nav from "./Nav";
-import PageHeading from "./PageHeading";
-import AnimatedCardGrid from "./AnimatedCardGrid";
-import InputCard from "./InputCard";
-import ResultCard from "./ResultCard";
-import { analyzeText } from "../services/api";
+import Nav from "@/components/Nav";
+import PageHeading from "@/components/PageHeading";
+import AnimatedCardGrid from "@/components/AnimatedCardGrid";
+import InputCard from "@/components/text-lab/InputCard";
+import ResultCard from "@/components/text-lab/ResultCard";
+import { analyzeText } from "@/services/api";
 import type { AnalysisResult } from "@/types";
 
 export default function TextLabPage() {

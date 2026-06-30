@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Nav from "./Nav";
-import PageHeading from "./PageHeading";
-import AnimatedCardGrid from "./AnimatedCardGrid";
-import { fetchIdentity } from "../services/api";
+import Nav from "@/components/Nav";
+import PageHeading from "@/components/PageHeading";
+import AnimatedCardGrid from "@/components/AnimatedCardGrid";
+import { fetchIdentity } from "@/services/api.ts";
 
 export default function HomePage() {
   const [motto, setMotto] = useState("-");
