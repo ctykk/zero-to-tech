@@ -52,7 +52,7 @@ export default function ResultCard({ result, loading }: ResultCardProps) {
         <div className="result-grid">
           <div className="result-badge">
             <span>情感分数</span>
-            <strong>{result.emotion_score}</strong>
+            <strong>{result.emotion_score.toFixed(3)}</strong>
           </div>
           <div className="result-badge">
             <span>情感判断</span>

@@ -1,7 +1,6 @@
 package apis
 
 import (
-	"math"
 	"math/rand/v2"
 	"net/http"
 	"strings"
@@ -24,7 +23,7 @@ var emotions = []string{"消极", "偏消极", "中性", "偏积极", "积极"}
 
 func generateEmotion() (emotion string, emotionScore float64) {
 	// emotionScore ∈ [-1, 1]
-	emotionScore = math.Round((rand.Float64()*2-1)*1000) / 1000
+	emotionScore = rand.Float64()*2 - 1
 	if emotionScore < -0.6 {
 		emotion = emotions[0]
 	} else if emotionScore < -0.2 {
