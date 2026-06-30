@@ -2,6 +2,8 @@
 
 从零到技术 —— 记录全栈学习之路的个人作品集。
 
+> 参考项目：[zero-to-tech-demos](https://github.com/joylibo/zero-to-tech-demos)
+
 ## 技术栈
 
 - **前端**：React 19 + TypeScript + Vite + React Router
