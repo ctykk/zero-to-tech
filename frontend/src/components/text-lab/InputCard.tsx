@@ -18,7 +18,7 @@ export default function InputCard({ onAnalyze, loading }: InputCardProps) {
 
   return (
     <article
-      className="col-span-6 min-h-[340px] animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-12 md:min-h-0"
+      className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
       data-card=""
     >
       <div className="mb-5">

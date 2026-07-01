@@ -9,7 +9,7 @@ export default function ResultCard({ result, loading }: ResultCardProps) {
   if (loading) {
     return (
       <article
-        className="col-span-6 min-h-[340px] animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-12 md:min-h-0"
+        className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
         data-card=""
       >
         <div className="mb-5">
@@ -30,7 +30,7 @@ export default function ResultCard({ result, loading }: ResultCardProps) {
   if (!result) {
     return (
       <article
-        className="col-span-6 min-h-[340px] animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-12 md:min-h-0"
+        className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
         data-card=""
       >
         <div className="mb-5">
@@ -50,7 +50,7 @@ export default function ResultCard({ result, loading }: ResultCardProps) {
 
   return (
     <article
-      className="col-span-6 min-h-[340px] animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-12 md:min-h-0"
+      className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
       data-card=""
     >
       <div className="mb-5">
@@ -78,7 +78,7 @@ export default function ResultCard({ result, loading }: ResultCardProps) {
             {result.pin_yin.join(" ")}
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-[14px] md:grid-cols-1">
+        <div className="grid grid-cols-1 gap-[14px] md:grid-cols-2">
           <div className="rounded-soft bg-surfaceSoft p-5">
             <span className="mb-2 block text-xs leading-[1.33] tracking-[-0.12px] text-textMuted">
               情感分数

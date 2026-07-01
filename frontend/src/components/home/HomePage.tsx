@@ -20,12 +20,13 @@ export default function HomePage() {
 
   return (
     <AnimatedCardGrid className="grid grid-cols-12 gap-[18px]">
-      <article className="col-span-12 grid min-h-[36vh] content-center py-2 pb-[18px] sm:min-h-0 sm:py-3 sm:pb-5">
+      <section className="col-span-12 grid min-h-0 content-center py-2 pb-[18px] sm:min-h-[36vh] sm:py-3 sm:pb-5">
         <Nav />
-        <PageHeading title="关于我" subtitle="项目，创意，灵感，心得，我的作品" />
-      </article>
 
-      <article
+        <PageHeading title="关于我" subtitle="项目，创意，灵感，心得，我的作品" />
+      </section>
+
+      <section
         className="col-span-12 grid min-h-[220px] animate-card-enter content-center gap-2 rounded-panel bg-surface p-6 py-7 pr-7 shadow-card"
         data-card=""
       >
@@ -39,20 +40,19 @@ export default function HomePage() {
           拼音和情绪，挖掘中文里的细节
         </p>
         <a
-          className="mt-1.5 inline-flex w-fit items-center gap-[10px] transition-opacity duration-200 hover:opacity-[0.86]"
+          className="mt-1.5 inline-flex w-fit cursor-pointer items-center gap-[10px] transition-opacity duration-200 hover:opacity-[0.86]"
           href="#"
           onClick={(e) => {
             e.preventDefault();
             navigate("/text-lab");
           }}
         >
-          <span className="text-[17px] leading-[1.47] tracking-[-0.37px] text-brand">打开作品</span>
-          <span className="text-[28px] leading-none text-brand">›</span>
+          <p className="text-[17px] leading-[1.47] tracking-[-0.37px] text-brand">打开作品{">"}</p>
         </a>
-      </article>
+      </section>
 
-      <article
-        className="col-span-12 grid animate-card-enter grid-cols-2 items-start gap-6 rounded-panel bg-surface p-6 py-5 pr-7 shadow-card md:grid-cols-1"
+      <section
+        className="col-span-12 grid animate-card-enter grid-cols-1 items-start gap-6 rounded-panel bg-surface p-6 py-5 pr-7 shadow-card md:grid-cols-2"
         data-card=""
       >
         <div className="pt-1">
@@ -71,7 +71,7 @@ export default function HomePage() {
             零到全栈
           </p>
         </div>
-      </article>
+      </section>
     </AnimatedCardGrid>
   );
 }
