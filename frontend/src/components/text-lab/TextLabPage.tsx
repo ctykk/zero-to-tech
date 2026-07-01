@@ -26,20 +26,27 @@ export default function TextLabPage() {
   };
 
   return (
-    <AnimatedCardGrid className="dashboard-grid">
-      <article className="hero-stage panel-full">
+    <AnimatedCardGrid className="grid grid-cols-12 gap-[18px]">
+      <article className="col-span-12 grid min-h-[36vh] content-center py-2 pb-[18px] sm:min-h-0 sm:py-3 sm:pb-5">
         <Nav />
         <PageHeading title="文字实验室" subtitle="拼音和情绪，挖掘中文里的细节" />
       </article>
 
       <InputCard onAnalyze={handleAnalyze} loading={loading} result={result} />
       {error ? (
-        <article className="panel panel-half lab-panel result-panel card">
-          <div className="panel-heading">
-            <p className="section-kicker">结果区</p>
-            <h3>分析结果</h3>
+        <article
+          className="col-span-6 min-h-[340px] animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-12 md:min-h-0"
+          data-card=""
+        >
+          <div className="mb-5">
+            <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
+              结果区
+            </p>
+            <h3 className="text-[28px] font-semibold leading-[1.14] tracking-[-0.03em] sm:text-[24px]">
+              分析结果
+            </h3>
           </div>
-          <p style={{ color: "red" }}>{error}</p>
+          <p className="text-red-500">{error}</p>
         </article>
       ) : (
         <ResultCard result={result} loading={loading} />

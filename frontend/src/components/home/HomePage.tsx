@@ -19,37 +19,57 @@ export default function HomePage() {
   }, []);
 
   return (
-    <AnimatedCardGrid className="dashboard-grid">
-      <article className="hero-stage panel-full">
+    <AnimatedCardGrid className="grid grid-cols-12 gap-[18px]">
+      <article className="col-span-12 grid min-h-[36vh] content-center py-2 pb-[18px] sm:min-h-0 sm:py-3 sm:pb-5">
         <Nav />
         <PageHeading title="关于我" subtitle="项目，创意，灵感，心得，我的作品" />
       </article>
 
-      <article className="panel panel-full featured-work-panel card">
-        <p className="section-kicker">作品</p>
-        <p className="featured-title">文字实验室</p>
-        <p className="featured-copy">拼音和情绪，挖掘中文里的细节</p>
+      <article
+        className="col-span-12 grid min-h-[220px] animate-card-enter content-center gap-2 rounded-panel bg-surface p-6 py-7 pr-7 shadow-card"
+        data-card=""
+      >
+        <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
+          作品
+        </p>
+        <p className="max-w-[720px] text-[clamp(34px,4.2vw,52px)] font-semibold leading-[1.04] tracking-[-0.05em] sm:text-[24px]">
+          文字实验室
+        </p>
+        <p className="max-w-[520px] text-[clamp(17px,2vw,21px)] leading-[1.28] tracking-[-0.02em] text-textSoft">
+          拼音和情绪，挖掘中文里的细节
+        </p>
         <a
-          className="featured-link"
+          className="mt-1.5 inline-flex w-fit items-center gap-[10px] transition-opacity duration-200 hover:opacity-[0.86]"
           href="#"
           onClick={(e) => {
             e.preventDefault();
             navigate("/text-lab");
           }}
         >
-          <span className="featured-link-label">打开作品</span>
-          <span className="arrow">›</span>
+          <span className="text-[17px] leading-[1.47] tracking-[-0.37px] text-brand">打开作品</span>
+          <span className="text-[28px] leading-none text-brand">›</span>
         </a>
       </article>
 
-      <article className="panel panel-full identity-panel card">
-        <div className="identity-item">
-          <p className="section-kicker">座右铭</p>
-          <p className="identity-value identity-quote">{motto}</p>
+      <article
+        className="col-span-12 grid animate-card-enter grid-cols-2 items-start gap-6 rounded-panel bg-surface p-6 py-5 pr-7 shadow-card md:grid-cols-1"
+        data-card=""
+      >
+        <div className="pt-1">
+          <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
+            座右铭
+          </p>
+          <p className="max-w-[520px] text-[clamp(20px,2.2vw,28px)] font-medium leading-[1.4] tracking-[-0.02em]">
+            {motto}
+          </p>
         </div>
-        <div className="identity-item">
-          <p className="section-kicker">正在学习</p>
-          <p className="identity-value">零到全栈</p>
+        <div className="pt-1">
+          <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
+            正在学习
+          </p>
+          <p className="text-[clamp(24px,3vw,32px)] font-semibold leading-[1.12] tracking-[-0.04em]">
+            零到全栈
+          </p>
         </div>
       </article>
     </AnimatedCardGrid>

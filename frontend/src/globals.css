@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-pageBg text-textMain antialiased;
+    font-family: "Microsoft YaHei", sans-serif;
+  }
+}

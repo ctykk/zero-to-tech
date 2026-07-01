@@ -2,9 +2,9 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div className="app-shell">
-      <div className="page-shell">
-        <main className="page-content">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#fff_0%,#f5f5f7_28%,#f5f5f7_100%)]">
+      <div className="mx-auto w-full max-w-page px-5 pb-8 sm:px-3">
+        <main>
           <Outlet />
         </main>
       </div>

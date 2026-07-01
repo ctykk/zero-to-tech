@@ -9,7 +9,7 @@ export default function AnimatedCardGrid({ children, className }: AnimatedCardGr
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const cards = ref.current?.querySelectorAll(".card");
+    const cards = ref.current?.querySelectorAll("[data-card]");
     if (!cards || cards.length === 0) return;
 
     cards.forEach((card, i) => {
