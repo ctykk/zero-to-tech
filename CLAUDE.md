@@ -87,6 +87,6 @@ App (BrowserRouter)
 | 方法 | 路由 | 请求体 | 响应 |
 |------|------|--------|------|
 | GET | `/api/identity` | — | `{"motto": "..."}` |
-| POST | `/api/analysis` | `{"text": "汉字"}` | `{"origin_text":"...", "pin_yin":["..."], "emotion":"中性", "emotion_score":0.1}` |
+| POST | `/api/analysis` | `{"text": "汉字"}` | `{"pinyin": [{"char":"今","pinyin":"jīn"}], "emotion":"中性", "emotion_score":0.1}` |
 
 情绪分数范围 [-1, 1]，映射为五档：消极 / 偏消极 / 中性 / 偏积极 / 积极。当前为随机生成。
