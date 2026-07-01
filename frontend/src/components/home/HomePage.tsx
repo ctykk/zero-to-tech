@@ -7,6 +7,7 @@ import { fetchIdentity } from "@/services/api.ts";
 
 export default function HomePage() {
   const [motto, setMotto] = useState("-");
+  const [identityError, setIdentityError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   // 组件挂载时从后端获取 motto
@@ -15,7 +16,7 @@ export default function HomePage() {
       .then((r) => {
         setMotto(r.motto);
       })
-      .catch((err) => setMotto(String(err)));
+      .catch((err) => setIdentityError(err instanceof Error ? err.message : "获取座右铭失败"));
   }, []);
 
   return (
@@ -59,9 +60,13 @@ export default function HomePage() {
           <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
             座右铭
           </p>
-          <p className="max-w-[520px] text-[clamp(20px,2.2vw,28px)] font-medium leading-[1.4] tracking-[-0.02em]">
-            {motto}
-          </p>
+          {identityError ? (
+            <p className="text-red-500">{identityError}</p>
+          ) : (
+            <p className="max-w-[520px] text-[clamp(20px,2.2vw,28px)] font-medium leading-[1.4] tracking-[-0.02em]">
+              {motto}
+            </p>
+          )}
         </div>
         <div className="pt-1">
           <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
