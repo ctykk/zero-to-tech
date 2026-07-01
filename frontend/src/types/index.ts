@@ -1,6 +1,10 @@
+export interface PinyinChar {
+  char: string;
+  pinyin: string | null;
+}
+
 export interface AnalysisResult {
-  origin_text: string;
-  pin_yin: string[];
+  pinyin: PinyinChar[];
   emotion: string;
   emotion_score: number;
 }

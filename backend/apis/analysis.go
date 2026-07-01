@@ -4,17 +4,21 @@ import (
 	"math/rand/v2"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/mozillazg/go-pinyin"
+	pinyin_ "github.com/mozillazg/go-pinyin"
 )
 
 type AnalysisRequest struct {
 	Text string `json:"text" binding:"required"`
 }
+type Pinyin struct {
+	Char   string  `json:"char"`
+	Pinyin *string `json:"pinyin"`
+}
 type AnalysisResponse struct {
-	OriginText   string   `json:"origin_text"`
-	PinYin       []string `json:"pin_yin"`
+	Pinyin       []Pinyin `json:"pinyin"`
 	Emotion      string   `json:"emotion"`
 	EmotionScore float64  `json:"emotion_score"`
 }
@@ -51,20 +55,27 @@ func AnalysisHandler(c *gin.Context) {
 	}
 
 	// 计算拼音
-	pinyinArgs := pinyin.Args{Style: pinyin.Tone}
-	pinyinResult := make([]string, 0, len(text))
-	for _, p := range pinyin.Pinyin(text, pinyinArgs) {
-		if len(p) >= 1 {
-			pinyinResult = append(pinyinResult, p[0])
+	pinyinArgs := pinyin_.Args{
+		Style: pinyin_.Tone,
+	}
+	pinyin := make([]Pinyin, 0, len([]rune(text)))
+	for _, r := range text {
+		ps := pinyin_.SinglePinyin(r, pinyinArgs)
+		p := Pinyin{Char: string(r)}
+		if len(ps) > 0 {
+			p.Pinyin = new(ps[0])
 		}
+		pinyin = append(pinyin, p)
 	}
 
 	// 计算情绪
 	emotion, emotionScore := generateEmotion()
 
+	// 随机延迟
+	time.Sleep(time.Duration(rand.IntN(1000)) * time.Millisecond)
+
 	c.JSON(http.StatusOK, AnalysisResponse{
-		OriginText:   text,
-		PinYin:       pinyinResult,
+		Pinyin:       pinyin,
 		Emotion:      emotion,
 		EmotionScore: emotionScore,
 	})

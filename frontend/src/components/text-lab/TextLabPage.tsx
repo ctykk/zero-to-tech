@@ -19,7 +19,7 @@ export default function TextLabPage() {
       const data = await analyzeText(text);
       setResult(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "分析失败，请稍后重试");
+      setError(err instanceof Error ? err.message : "分析失败");
     } finally {
       setLoading(false);
     }
@@ -34,20 +34,7 @@ export default function TextLabPage() {
       </section>
 
       <InputCard onAnalyze={handleAnalyze} loading={loading} result={result} />
-      {error ? (
-        <section
-          className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
-          data-card=""
-        >
-          <div className="mb-5">
-            <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">结果区</p>
-            <h3 className="text-[28px] font-semibold leading-[1.14] tracking-[-0.03em] sm:text-[24px]">分析结果</h3>
-          </div>
-          <p className="text-red-500">{error}</p>
-        </section>
-      ) : (
-        <ResultCard result={result} loading={loading} />
-      )}
+      <ResultCard result={result} loading={loading} error={error} />
     </AnimatedCardGrid>
   );
 }
