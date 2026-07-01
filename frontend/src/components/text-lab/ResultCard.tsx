@@ -17,11 +17,11 @@ function LabeledValue({
 }) {
   return (
     <div className="rounded-soft bg-surfaceSoft p-5">
-      <span className="mb-2 block text-xs leading-[1.33] tracking-[-0.12px] text-textMuted">
+      <span className="text-textMuted mb-2 block text-xs leading-[1.33] tracking-[-0.12px]">
         {label}
       </span>
       <strong
-        className={`text-[28px] font-semibold leading-[1.15] tracking-[-0.03em] sm:text-[24px] ${muted ? "text-textMuted" : "text-textMain"}`}
+        className={`text-[28px] leading-[1.15] font-semibold tracking-[-0.03em] sm:text-[24px] ${muted ? "text-textMuted" : "text-textMain"}`}
       >
         {value}
       </strong>
@@ -48,13 +48,13 @@ function EmotionGrid({
 
 function PinyinText({ pinyin }: { pinyin: PinyinChar[] }) {
   return (
-    <p className="whitespace-pre-wrap text-[17px] leading-[1.47] tracking-[-0.37px] text-textMain">
+    <p className="text-textMain text-[17px] leading-[1.47] tracking-[-0.37px] whitespace-pre-wrap">
       {pinyin.map((item, i) =>
         item.pinyin ? (
           <span key={i}>
             <ruby key={i}>
               {item.char}
-              <rt className="text-xs text-textSoft">{item.pinyin}</rt>
+              <rt className="text-textSoft text-xs">{item.pinyin}</rt>
             </ruby>
           </span>
         ) : (
@@ -68,14 +68,14 @@ function PinyinText({ pinyin }: { pinyin: PinyinChar[] }) {
 export default function ResultCard({ result, loading, error }: ResultCardProps) {
   return (
     <article
-      className="col-span-12 min-h-0 animate-card-enter rounded-panel bg-surface p-6 pr-7 shadow-card md:col-span-6 md:min-h-[340px]"
+      className="animate-card-enter rounded-panel bg-surface shadow-card col-span-12 min-h-0 p-6 pr-7 md:col-span-6 md:min-h-[340px]"
       data-card=""
     >
       <div className="mb-5">
-        <p className="mb-3 text-xs font-semibold leading-[1.33] tracking-[-0.12px] text-textMuted">
+        <p className="text-textMuted mb-3 text-xs leading-[1.33] font-semibold tracking-[-0.12px]">
           结果区
         </p>
-        <h3 className="text-[28px] font-semibold leading-[1.14] tracking-[-0.03em] sm:text-[24px]">
+        <h3 className="text-[28px] leading-[1.14] font-semibold tracking-[-0.03em] sm:text-[24px]">
           分析结果
         </h3>
       </div>
@@ -87,10 +87,10 @@ export default function ResultCard({ result, loading, error }: ResultCardProps) 
         ) : !result ? (
           <>
             <div className="rounded-soft bg-surfaceSoft p-5">
-              <span className="mb-2 block text-xs leading-[1.33] tracking-[-0.12px] text-textMuted">
+              <span className="text-textMuted mb-2 block text-xs leading-[1.33] tracking-[-0.12px]">
                 拼音
               </span>
-              <p className="whitespace-pre-wrap text-[17px] leading-[1.47] tracking-[-0.37px] text-textMuted">
+              <p className="text-textMuted text-[17px] leading-[1.47] tracking-[-0.37px] whitespace-pre-wrap">
                 &mdash;
               </p>
             </div>
@@ -99,7 +99,7 @@ export default function ResultCard({ result, loading, error }: ResultCardProps) 
         ) : (
           <>
             <div className="rounded-soft bg-surfaceSoft p-5">
-              <span className="mb-2 block text-xs leading-[1.33] tracking-[-0.12px] text-textMuted">
+              <span className="text-textMuted mb-2 block text-xs leading-[1.33] tracking-[-0.12px]">
                 拼音
               </span>
               <PinyinText pinyin={result.pinyin} />

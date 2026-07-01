@@ -18,8 +18,8 @@ export default function Nav() {
             to={it.to}
             end={it.to === "/"}
             className={({ isActive }) =>
-              "text-[15px] leading-[1.33] tracking-[-0.24px] text-[rgba(29,29,31,0.54)] transition-colors duration-200 hover:text-textMain" +
-              (isActive ? " font-bold text-textMain" : "")
+              "hover:text-textMain text-[15px] leading-[1.33] tracking-[-0.24px] text-[rgba(29,29,31,0.54)] transition-colors duration-200" +
+              (isActive ? " text-textMain font-bold" : "")
             }
           >
             {it.label}

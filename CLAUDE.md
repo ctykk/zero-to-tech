@@ -37,18 +37,18 @@ go run main.go       # 启动 Go 服务 (端口 8080)
 ```
 zero-to-tech/
 ├── frontend/       # React 19 SPA (Vite + TypeScript)
-│   ├── tailwind.config.ts   # Tailwind 主题扩展（色彩、动画、字体等）
-│   └── postcss.config.js    # PostCSS: tailwindcss + autoprefixer
+│   └── vite.config.ts         # @tailwindcss/vite + @vitejs/plugin-react
 └── backend/        # Go REST API (Gin 框架)
 ```
 前后端通过 HTTP API 通信，无 SSR/模板渲染。前端生产构建输出到 `frontend/dist/`。
 
 ### 前端架构
 
-**样式方案**: Tailwind CSS v3（无手写 CSS 文件）。
-- 设计变量定义在 `tailwind.config.ts` 的 `theme.extend` 中（8 种颜色、2 种圆角、阴影、渐变、字体、动画关键帧）
-- `src/globals.css` 包含 `@tailwind` 指令和 `@layer base` 的 body 样式
-- 无 `src/css/` 目录，所有样式以 utility classes 写在 JSX 中
+**样式方案**: Tailwind CSS v4（无手写 CSS 文件）。
+- 设计变量通过 `@theme` 定义在 `src/globals.css` 中（8 种颜色、2 种圆角、阴影、渐变、字体、动画关键帧）
+- `@tailwindcss/vite` 插件处理构建，无需 PostCSS 配置
+- 无 `tailwind.config.*` 或 `postcss.config.*` 文件，所有配置在 CSS 中完成
+- 所有样式以 utility classes 写在 JSX 中
 
 **路由结构** (React Router DOM v7):
 ```
