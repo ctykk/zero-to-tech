@@ -18,7 +18,7 @@ export default function InputCard({ onAnalyze, loading }: InputCardProps) {
 
   return (
     <article
-      className="animate-card-enter rounded-panel bg-surface shadow-card col-span-12 min-h-0 p-6 pr-7 md:col-span-6 md:min-h-[340px]"
+      className="animate-card-enter rounded-panel bg-surface shadow-card col-span-12 min-h-0 p-6 pr-7 md:col-span-6 md:min-h-85"
       data-card=""
     >
       <div className="mb-5">
@@ -30,7 +30,7 @@ export default function InputCard({ onAnalyze, loading }: InputCardProps) {
         </h3>
       </div>
       <form
-        className="grid gap-[14px]"
+        className="grid gap-3.5"
         onSubmit={(e) => {
           e.preventDefault();
           void onAnalyze(text);
@@ -45,7 +45,7 @@ export default function InputCard({ onAnalyze, loading }: InputCardProps) {
         <textarea
           id="text-input"
           rows={8}
-          className="rounded-soft border-borderSoft bg-surfaceSoft text-textMain placeholder:text-textMuted focus:border-brand min-h-[220px] w-full resize-y border px-5 py-[18px] text-[17px] leading-[1.47] tracking-[-0.37px] outline-hidden focus:shadow-[0_0_0_2px_rgba(0,113,227,0.14)]"
+          className="rounded-soft border-borderSoft bg-surfaceSoft text-textMain placeholder:text-textMuted focus:border-brand min-h-55 w-full resize-y border px-5 py-4.5 text-[17px] leading-[1.47] tracking-[-0.37px] outline-hidden focus:shadow-[0_0_0_2px_rgba(0,113,227,0.14)]"
           placeholder="例如：生活没有标准答案，但每一天都值得认真感受。"
           value={text}
           onChange={(e) => {
@@ -58,7 +58,7 @@ export default function InputCard({ onAnalyze, loading }: InputCardProps) {
           已输入 {text.length} 字
         </p>
         <button
-          className="bg-brand min-w-[128px] cursor-pointer justify-self-start rounded-full px-4 py-2 text-[17px] leading-[1.41] text-white transition-opacity duration-200 hover:opacity-[0.86] disabled:cursor-not-allowed disabled:opacity-50"
+          className="bg-brand min-w-32 cursor-pointer justify-self-start rounded-full px-4 py-2 text-[17px] leading-[1.41] text-white transition-opacity duration-200 hover:opacity-[0.86] disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
           disabled={loading || !text.trim()}
         >

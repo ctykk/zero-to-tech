@@ -26,8 +26,8 @@ export default function TextLabPage() {
   };
 
   return (
-    <AnimatedCardGrid className="grid grid-cols-12 gap-[18px]">
-      <section className="col-span-12 grid min-h-0 content-center py-2 pb-[18px] sm:min-h-[36vh] sm:py-3 sm:pb-5">
+    <AnimatedCardGrid className="grid grid-cols-12 gap-4.5">
+      <section className="col-span-12 grid min-h-0 content-center py-2 pb-4.5 sm:min-h-[36vh] sm:py-3 sm:pb-5">
         <Nav />
 
         <PageHeading title="文字实验室" subtitle="拼音和情绪，挖掘中文里的细节" />

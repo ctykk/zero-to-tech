@@ -39,7 +39,7 @@ function EmotionGrid({
   muted?: boolean;
 }) {
   return (
-    <div className="grid grid-cols-1 gap-[14px] md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2">
       <LabeledValue label="情感分数" value={score ?? "—"} muted={muted} />
       <LabeledValue label="情感判断" value={emotion ?? "—"} muted={muted} />
     </div>
@@ -68,7 +68,7 @@ function PinyinText({ pinyin }: { pinyin: PinyinChar[] }) {
 export default function ResultCard({ result, loading, error }: ResultCardProps) {
   return (
     <article
-      className="animate-card-enter rounded-panel bg-surface shadow-card col-span-12 min-h-0 p-6 pr-7 md:col-span-6 md:min-h-[340px]"
+      className="animate-card-enter rounded-panel bg-surface shadow-card col-span-12 min-h-0 p-6 pr-7 md:col-span-6 md:min-h-85"
       data-card=""
     >
       <div className="mb-5">
@@ -79,7 +79,7 @@ export default function ResultCard({ result, loading, error }: ResultCardProps) 
           分析结果
         </h3>
       </div>
-      <div className="grid gap-[14px]">
+      <div className="grid gap-3.5">
         {loading ? (
           <p className="text-textMuted">正在分析中...</p>
         ) : error ? (
